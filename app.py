@@ -36,16 +36,16 @@ bp = Blueprint("routes", __name__, static_folder="static", template_folder="stat
 MINIMUM_SUPPORTED_AZURE_OPENAI_PREVIEW_API_VERSION = "2024-02-15-preview"
 
 # UI configuration (optional)
-UI_TITLE = os.environ.get("UI_TITLE") or "Contoso"
+UI_TITLE = os.environ.get("UI_TITLE") or "Pearson"
 UI_LOGO = os.environ.get("UI_LOGO")
 UI_CHAT_LOGO = os.environ.get("UI_CHAT_LOGO")
-UI_CHAT_TITLE = os.environ.get("UI_CHAT_TITLE") or "Start chatting"
+UI_CHAT_TITLE = os.environ.get("UI_CHAT_TITLE") or "Start chatting with AIQ"
 UI_CHAT_DESCRIPTION = (
     os.environ.get("UI_CHAT_DESCRIPTION")
     or "This chatbot is configured to answer your questions"
 )
 UI_FAVICON = os.environ.get("UI_FAVICON") or "/favicon.ico"
-UI_SHOW_SHARE_BUTTON = os.environ.get("UI_SHOW_SHARE_BUTTON", "true").lower() == "true"
+UI_SHOW_SHARE_BUTTON = os.environ.get("UI_SHOW_SHARE_BUTTON", "false").lower() == "true"
 
 
 def create_app():
@@ -83,7 +83,7 @@ USER_AGENT = "GitHubSampleWebApp/AsyncAzureOpenAI/1.0.0"
 DATASOURCE_TYPE = os.environ.get("DATASOURCE_TYPE", "AzureCognitiveSearch")
 SEARCH_TOP_K = os.environ.get("SEARCH_TOP_K", 5)
 SEARCH_STRICTNESS = os.environ.get("SEARCH_STRICTNESS", 3)
-SEARCH_ENABLE_IN_DOMAIN = os.environ.get("SEARCH_ENABLE_IN_DOMAIN", "true")
+SEARCH_ENABLE_IN_DOMAIN = os.environ.get("SEARCH_ENABLE_IN_DOMAIN", "false")
 
 # ACS Integration Settings
 AZURE_SEARCH_SERVICE = os.environ.get("AZURE_SEARCH_SERVICE")
@@ -127,9 +127,9 @@ AZURE_OPENAI_PREVIEW_API_VERSION = os.environ.get(
     "AZURE_OPENAI_PREVIEW_API_VERSION",
     MINIMUM_SUPPORTED_AZURE_OPENAI_PREVIEW_API_VERSION,
 )
-AZURE_OPENAI_STREAM = os.environ.get("AZURE_OPENAI_STREAM", "true")
+AZURE_OPENAI_STREAM = os.environ.get("AZURE_OPENAI_STREAM", "false")
 AZURE_OPENAI_MODEL_NAME = os.environ.get(
-    "AZURE_OPENAI_MODEL_NAME", "gpt-35-turbo-16k"
+    "AZURE_OPENAI_MODEL_NAME", "gpt-4"
 )  # Name of the model, e.g. 'gpt-35-turbo-16k' or 'gpt-4'
 AZURE_OPENAI_EMBEDDING_ENDPOINT = os.environ.get("AZURE_OPENAI_EMBEDDING_ENDPOINT")
 AZURE_OPENAI_EMBEDDING_KEY = os.environ.get("AZURE_OPENAI_EMBEDDING_KEY")
@@ -234,7 +234,7 @@ AZURE_MLINDEX_URL_COLUMN = os.environ.get("AZURE_MLINDEX_URL_COLUMN")
 AZURE_MLINDEX_VECTOR_COLUMNS = os.environ.get("AZURE_MLINDEX_VECTOR_COLUMNS")
 AZURE_MLINDEX_QUERY_TYPE = os.environ.get("AZURE_MLINDEX_QUERY_TYPE")
 # Promptflow Integration Settings
-USE_PROMPTFLOW = os.environ.get("USE_PROMPTFLOW", "false").lower() == "true"
+USE_PROMPTFLOW = os.environ.get("USE_PROMPTFLOW", "true").lower() == "true"
 PROMPTFLOW_ENDPOINT = os.environ.get("PROMPTFLOW_ENDPOINT")
 PROMPTFLOW_API_KEY = os.environ.get("PROMPTFLOW_API_KEY")
 PROMPTFLOW_RESPONSE_TIMEOUT = os.environ.get("PROMPTFLOW_RESPONSE_TIMEOUT", 30.0)
